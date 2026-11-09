@@ -2,113 +2,59 @@
 
 @layer base {
   body {
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-family: 'Fredoka', cursive, system-ui, -apple-system, sans-serif;
     user-select: none;
-    background-color: #0b1120;
-    color: #f8fafc;
+    -webkit-user-select: none;
+    background-color: #38bdf8;
+    color: #1e293b;
     overflow-x: hidden;
   }
-
-  h1, h2, h3, .font-fun {
-    font-family: 'Fredoka', cursive, sans-serif;
-  }
 }
 
-/* Custom Game Animations */
-@keyframes blackHoleVortex {
+.btn-big {
+  padding: 0.8rem 1.6rem;
+  border-radius: 1.25rem;
+  font-weight: 800;
+  font-size: 1.15rem;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-big:active {
+  transform: scale(0.96);
+}
+
+@keyframes popIn {
   0% {
-    transform: scale(1) rotate(0deg);
-    opacity: 1;
-    filter: blur(0px);
-  }
-  50% {
-    transform: scale(0.6) rotate(540deg);
-    opacity: 0.8;
-    filter: blur(2px);
+    transform: scale(0.85);
+    opacity: 0;
   }
   100% {
-    transform: scale(0.01) rotate(1440deg);
-    opacity: 0;
-    filter: blur(8px);
-  }
-}
-
-@keyframes viralDance {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg) scale(1);
-  }
-  20% {
-    transform: translateY(-16px) rotate(-8deg) scale(1.05);
-  }
-  40% {
-    transform: translateY(-8px) rotate(8deg) scale(0.98);
-  }
-  60% {
-    transform: translateY(-20px) rotate(-12deg) scale(1.1);
-  }
-  80% {
-    transform: translateY(-4px) rotate(12deg) scale(1.02);
-  }
-}
-
-@keyframes trashPulse {
-  0%, 100% {
     transform: scale(1);
-    filter: drop-shadow(0 0 4px rgba(239, 68, 68, 0.4));
-  }
-  50% {
-    transform: scale(1.08);
-    filter: drop-shadow(0 0 12px rgba(239, 68, 68, 0.8));
+    opacity: 1;
   }
 }
 
-@keyframes floatBob {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
+.pop-in {
+  animation: popIn 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
-@keyframes glowBorder {
-  0%, 100% {
-    box-shadow: 0 0 15px rgba(52, 211, 153, 0.5), inset 0 0 10px rgba(52, 211, 153, 0.2);
+@keyframes toastIn {
+  0% {
+    transform: translate(-50%, -15px);
+    opacity: 0;
   }
-  50% {
-    box-shadow: 0 0 30px rgba(16, 185, 129, 0.9), inset 0 0 20px rgba(52, 211, 153, 0.4);
+  100% {
+    transform: translate(-50%, 0);
+    opacity: 1;
   }
 }
 
-.animate-vortex {
-  animation: blackHoleVortex 2.2s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards;
-}
-
-.animate-viral-dance {
-  animation: viralDance 0.8s ease-in-out infinite;
-}
-
-.animate-trash-pulse {
-  animation: trashPulse 1.2s infinite ease-in-out;
-}
-
-.animate-float-bob {
-  animation: floatBob 2.5s infinite ease-in-out;
-}
-
-.animate-glow-border {
-  animation: glowBorder 2s infinite ease-in-out;
-}
-
-@keyframes neonPulse {
-  0%, 100% {
-    filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.7));
-  }
-  50% {
-    filter: drop-shadow(0 0 16px rgba(56, 189, 248, 1));
-  }
-}
-
-.animate-neon-pulse {
-  animation: neonPulse 1.8s infinite ease-in-out;
+.toast-in {
+  animation: toastIn 0.2s ease-out forwards;
 }
