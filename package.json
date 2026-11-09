@@ -7,7 +7,8 @@
     "dev": "vite --port=3000 --host=0.0.0.0",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "deploy": "npm run build && touch dist/.nojekyll && git checkout -B gh-pages && git --work-tree dist add --all && git --work-tree dist commit -m 'deploy: update build' && git push -f origin gh-pages && git checkout main"
   },
   "dependencies": {
     "react": "^19.3.0",
